@@ -1,0 +1,17 @@
+logger:
+  kafka:
+        brokers:
+          - 10.26.205.20:9092
+          - 10.27.116.104:9092
+          - 10.27.121.103:9092
+        topic: logger
+behaviorLog:
+    kafka:
+      brokers:
+        - 10.26.205.20:9092
+        - 10.27.116.104:9092
+        - 10.27.121.103:9092
+      topic: behaviorlog
+debug: true
+service: sample-go-api
+httpport: 8080
