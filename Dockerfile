@@ -1,6 +1,7 @@
 FROM pangpanglabs/golang:builder AS builder
 
-RUN go get github.com/fatih/structs
+RUN go get github.com/fatih/structs \
+    && go get github.com/relax-space/go-kit/...
 
 ADD . /go/src/sample-go-api
 WORKDIR /go/src/sample-go-api

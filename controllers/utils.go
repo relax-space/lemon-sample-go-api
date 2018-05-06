@@ -56,6 +56,7 @@ var (
 	ApiErrorNotFound           = ApiError{Code: 10014, Message: "Resource has not found"}
 	ApiErrorHasExist           = ApiError{Code: 10015, Message: "Resource has existed"}
 	ApiErrorNotChanged         = ApiError{Code: 10016, Message: "Resource has not changed"}
+	ApiErrorSign               = ApiError{Code: 10017, Message: "Sign invaild"}
 
 	// Business Error
 	ApiErrorUserNotExists = ApiError{Code: 20001, Message: "User does not exists"}

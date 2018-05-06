@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"sample-go-api/controllers"
+	"sample-go-api/models"
 	"strings"
 
 	"github.com/asaskevich/govalidator"
@@ -19,7 +20,6 @@ import (
 	"github.com/pangpanglabs/goutils/echomiddleware"
 
 	"sample-go-api/factory"
-	"sample-go-api/models"
 )
 
 var (
@@ -54,15 +54,16 @@ func main() {
 		return c.File("./swagger.yml")
 	})
 	e.Static("/docs", "./swagger-ui")
-
 	controllers.FruitApiController{}.Init(e.Group("/fruits"))
+	controllers.SignApiController{}.Init(e.Group("/sign"))
 	controllers.FruitApiController{}.Init(e.Group("/v1/fruits"))
 	e.Use(middleware.JWTWithConfig(middleware.JWTConfig{
 		SigningKey: []byte(*jwtEnv),
 		Skipper: func(c echo.Context) bool {
 			ignore := []string{
 				"/ping",
-				"/v1/fruits",
+				"/fruits",
+				"/sign",
 				"/swagger",
 				"/docs",
 			}
