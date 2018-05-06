@@ -1,25 +1,5 @@
-# sample-go-api
-swagger url
-```
-http://127.0.0.1:8080/docs/index.html
-```
 
-jwt
-```
-http://127.0.0.1:8080/fruits
-```
-
-#Tips
-
-Before submitting the code, please pull go-api code
-```
-git remote add api-upstream https://gitlab.p2shop.cn:8443/sample/go-api.git
-git pull --rebase api-upstream master
-```
-
-======================================================
-
-# go-api template
+# sample-go-api template
 
 You can quickly create an echo-based api project
 
@@ -34,14 +14,14 @@ You can quickly create an echo-based api project
 
 Get source
 ```
-$ git clone https://gitlab.p2shop.cn:8443/sample/go-api.git
+$ git clone https://gitlab.p2shop.cn:8443/sample/sample-go-api.git
 ```
 Rename the outermost folder to your project name  
 Rename sample-api-go to your project name
 
 Run
 ```
-$ cd $GOPATH/src/go-api
+$ cd $GOPATH/src/sample-go-api
 $ go run main.go
 ```
 
