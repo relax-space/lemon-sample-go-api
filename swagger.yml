@@ -1,0 +1,127 @@
+swagger: '2.0'
+info:
+  title: sample-go-api
+  description: |
+  version: "2.0.0"
+host: localhost:8080
+schemes:
+  - http
+produces:
+  - application/json
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+paths:
+  /ping:
+    get:
+      summary: ping
+      description: |
+      tags:
+        - ping
+      responses:
+        200:
+          description: |
+        default:
+          description: pong
+  /fruits/v1:
+    get:
+      summary: fruit
+      description: |
+      parameters:
+        - name: sortby
+          in: query
+          description: |
+          required: false
+          type: string
+        - name: order
+          in: query
+          description: |
+          required: false
+          type: string
+        - name: skipCount
+          in: query
+          description: |
+          required: false
+          type: string
+        - name: maxResultCount
+          in: query
+          description: |
+          required: false
+          type: string
+      tags:
+        - fruit
+      responses:
+        200:
+          description: |
+          schema:
+            $ref: '#/definitions/ArrayResult'
+        default:
+          description: error
+          schema:
+            $ref: '#/definitions/ErrorResult'
+definitions:
+  Content:
+    type: object
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+      desc:
+        type: string
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+  Item:
+    type: object
+  ErrorResult:
+    type: object
+    properties:
+      success:
+        type: boolean
+        default: false
+      error:
+        $ref: '#/definitions/Error'
+  ItemResult:
+    type: object
+    properties:
+      success:
+        type: boolean
+        default: true
+      result:
+        $ref: '#/definitions/Item'
+  ArrayResult:
+    type: object
+    properties:
+      success:
+        type: boolean
+        default: true
+      result:
+        type: array
+        items:
+          $ref: '#/definitions/Item'
+  PagingResult:
+    type: object
+    properties:
+      success:
+        type: boolean
+        default: true
+      result:
+        $ref: '#/definitions/Paging'
+  Paging:
+    type: object
+    properties:
+      totalCount:
+        type: integer
+        format: int32
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Item'
