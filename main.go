@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"devops-api/models"
 	"flag"
 	"fmt"
 	"log"
@@ -19,7 +20,6 @@ import (
 	"github.com/pangpanglabs/goutils/echomiddleware"
 
 	"sample-go-api/factory"
-	"sample-go-api/models"
 )
 
 var (
@@ -54,7 +54,6 @@ func main() {
 		return c.File("./swagger.yml")
 	})
 	e.Static("/docs", "./swagger-ui")
-
 	controllers.FruitApiController{}.Init(e.Group("/fruits"))
 	controllers.FruitApiController{}.Init(e.Group("/v1/fruits"))
 	e.Use(middleware.JWTWithConfig(middleware.JWTConfig{

@@ -1,6 +1,6 @@
 # sample-go-api template
 
-You can quickly create an echo-based api project 
+You can quickly create an echo-based api project
 
 # supports
 - behavior log
