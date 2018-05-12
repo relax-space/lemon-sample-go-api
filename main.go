@@ -55,6 +55,7 @@ func main() {
 	})
 	e.Static("/docs", "./swagger-ui")
 	controllers.FruitApiController{}.Init(e.Group("/fruits"))
+	controllers.SignApiController{}.Init(e.Group("/sign"))
 	controllers.FruitApiController{}.Init(e.Group("/v1/fruits"))
 	e.Use(middleware.JWTWithConfig(middleware.JWTConfig{
 		SigningKey: []byte(*jwtEnv),
@@ -62,6 +63,7 @@ func main() {
 			ignore := []string{
 				"/ping",
 				"/fruits",
+				"/sign",
 				"/swagger",
 				"/docs",
 			}
