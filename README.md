@@ -1,5 +1,5 @@
 # sample-go-api
-an go-api-based sample
+an go-api-based sample 
 
 # feature
 - url:https://staging.p2shop.com.cn/sample/fruits
