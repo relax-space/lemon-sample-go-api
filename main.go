@@ -2,13 +2,13 @@ package main
 
 import (
 	"context"
-	"devops-api/models"
 	"flag"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 	"sample-go-api/controllers"
+	"sample-go-api/models"
 	"strings"
 
 	"github.com/asaskevich/govalidator"
@@ -61,7 +61,7 @@ func main() {
 		Skipper: func(c echo.Context) bool {
 			ignore := []string{
 				"/ping",
-				"/v1/fruits",
+				"/fruits",
 				"/swagger",
 				"/docs",
 			}
