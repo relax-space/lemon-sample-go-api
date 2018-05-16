@@ -28,7 +28,7 @@ func init() {
 	echoApp = echo.New()
 	echoApp.Validator = &Validator{}
 	configMap := map[string]interface{}{
-		"key": os.Getenv("XXX"),
+		"fruits_api": os.Getenv("Fruit_Url"),
 	}
 	setContextValueMiddleware := setContextValue(&configMap, db)
 	handleWithFilter = func(handlerFunc echo.HandlerFunc, c echo.Context) error {

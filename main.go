@@ -29,6 +29,7 @@ var (
 func main() {
 	appEnv := flag.String("app-env", os.Getenv("APP_ENV"), "app env")
 	fruitConnEnv := flag.String("FRUIT_CONN", os.Getenv("FRUIT_CONN"), "FRUIT_CONN")
+	sampleUrl := flag.String("Sample_Url", os.Getenv("Sample_Url"), "Sample_Url")
 	jwtEnv := flag.String("JWT_SECRET", os.Getenv("JWT_SECRET"), "JWT_SECRET")
 
 	flag.Parse()
@@ -92,7 +93,7 @@ func main() {
 	e.Debug = c.Debug
 
 	configMap := map[string]interface{}{
-		"key": "123",
+		"sample_url": *sampleUrl,
 	}
 	setContextValueMiddleware := setContextValue(&configMap)
 	handleWithFilter = func(handlerFunc echo.HandlerFunc, c echo.Context) error {
